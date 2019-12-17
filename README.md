@@ -12,7 +12,7 @@ Via npm :
 
 ```
 // Importation
-const NasaSmartAPI = require("@samuelcalegari/nasa-api")
+const NasaSmartAPI = require("@samuelcalegari/nasa-smart-api")
 
 // Declaration
 const n = new NasaSmartAPI({key :'dDgtANyo4HGKNbBI1LgPLN5fvzZ2UERCffeu4nHR'});
