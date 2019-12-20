@@ -81,5 +81,41 @@ async function getCollection(item,results) {
     results.push(Object)
 }
 
+/**
+ *
+ * @param {Object} options {}
+ */
+NasaSmartAPI.prototype.getPictureOfTheDay = async function(options){
+
+    const {date} = options;
+    const result =  '';
+    let response = null;
+
+    let data = {
+        'date': date,
+        'api_key' : this.ApiKey
+    };
+
+    try {
+        response = await request({
+            url: 'https://api.nasa.gov/planetary/apod',
+            qs: data,
+            useQuerystring: true,
+            json: true
+        });
+    } catch(e) {
+        throw new Error(e);
+    }
+
+    let Object = {
+        "title": response.title,
+        "url": response.url,
+        "hdurl": response.hdurl,
+        "explanation": response.explanation
+    }
+
+    return Object;
+}
+
 module.exports = NasaSmartAPI;
 
